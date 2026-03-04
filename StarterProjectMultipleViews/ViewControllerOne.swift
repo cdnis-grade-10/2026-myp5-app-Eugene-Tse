@@ -27,7 +27,42 @@
 
 import UIKit
 
+
+
 class ViewControllerOne: UIViewController {
+    
+    @IBOutlet weak var label: UILabel!
+    
+    var timeRemaining: Int = 10
+    var timer: Timer!
+    
+    
+    @IBAction func PlayTapped(_ sender: Any) {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step)  , userInfo: nil, repeats: true)
+    }
+    
+    @IBAction func PauseTapped(_ sender: Any) {
+        timer.invalidate()
+    }
+    
+    
+    @IBAction func ResetTapped(_ sender: Any) {
+        timer.invalidate()
+        timeRemaining = 10
+        label.text = "\(timeRemaining)"
+    }
+    
+    @objc func step() {
+        if timeRemaining > 0 {
+            timeRemaining -= 1
+        } else {
+            timer.invalidate()
+            timeRemaining = 10
+        }
+        label.text = "\(timeRemaining)"
+    
+    }
+    
     
     // MARK: - IBOutlets
     
@@ -43,7 +78,4 @@ class ViewControllerOne: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
-
