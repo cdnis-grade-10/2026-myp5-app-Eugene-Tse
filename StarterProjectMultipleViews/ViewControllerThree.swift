@@ -1,34 +1,52 @@
-/*
- 
- ViewControllerThree.swift
- 
- This file will contain the code for the third viewcontroller.
- Please ensure that your code is organised and is easy to read.
- This means that you will need to both structure your code correctly,
- in addition to using the correct syntax for Swift.
- 
- Unless you are told otherwise, ensure that you are using the
- camelCase syntax. For example, outputLabel and firstName are good
- examples of using the camelCase syntax.
- 
- Within each class, you can see clearly identified sections denoted by
- MARK statements. These MARK statements allow you to structure and organise
- your code.
- 
- - @IBOutlets should be listed under the MARK section on IBOutlets
- - Variables and constants listed under the MARK section Variables and Constants
- - Functions (including @IBActions) listed under the section on IBActions and Functions.
- 
- As you develop each view controller class with Swift code, please include
- detailed comments to both demonstrate understanding, and which serve you as
- a reminder as to what your code actually does.
- 
- */
 
 import UIKit
+import SwiftUI
+import Charts
+
+struct ContentView: View {
+    var data = [
+        SleepDataPoint (
+            day: "Mon", hours: 6),
+        
+        SleepDataPoint (
+            day: "Tue", hours: 7),
+        
+        SleepDataPoint (
+            day: "Wed", hours: 5),
+        
+        SleepDataPoint (
+            day: "Thu", hours: 8),
+        
+        SleepDataPoint (
+            day: "Fri", hours: 9),
+        
+        SleepDataPoint (
+            day: "Sat", hours: 4),
+        
+        SleepDataPoint (
+            day: "Sun", hours: 10)]
+    
+    var body: some View {
+        
+        Chart {
+            
+            ForEach(data) { d in 
+                
+                BarMark(x: PlottableValue.value("Day", d.day), y: .value("Hours", d.hours))
+            }
+        }
+    }
+}
 
 class ViewControllerThree: UIViewController {
     
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      
+    }
+    
+}
     // MARK: - IBOutlets
     
     
@@ -38,10 +56,4 @@ class ViewControllerThree: UIViewController {
     
     
     // MARK: - IBActions and Functions
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-}
