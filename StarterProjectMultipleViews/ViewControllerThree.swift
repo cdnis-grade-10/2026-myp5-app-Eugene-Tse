@@ -40,26 +40,26 @@ class ViewControllerThree: UIViewController {
 
 struct ContentView: View {
     var data = [
-        SleepDataPoint (
-            day: "Mon", hours: 6),
+        WorkDataPoint (
+            day: "Mon", hours: 2),
         
-        SleepDataPoint (
-            day: "Tue", hours: 7),
+        WorkDataPoint (
+            day: "Tue", hours: 3),
         
-        SleepDataPoint (
-            day: "Wed", hours: 5),
+        WorkDataPoint (
+            day: "Wed", hours: 5, type: "Highest"),
         
-        SleepDataPoint (
-            day: "Thu", hours: 8),
+        WorkDataPoint (
+            day: "Thu", hours: 4),
         
-        SleepDataPoint (
-            day: "Fri", hours: 9),
+        WorkDataPoint (
+            day: "Fri", hours: 2),
         
-        SleepDataPoint (
-            day: "Sat", hours: 4),
+        WorkDataPoint (
+            day: "Sat", hours: 1, type: "Lowest"),
         
-        SleepDataPoint (
-            day: "Sun", hours: 10)]
+        WorkDataPoint (
+            day: "Sun", hours: 1, type: "Lowest")]
     
     var body: some View {
         
@@ -67,9 +67,15 @@ struct ContentView: View {
             
             ForEach(data) { d in 
                 
-                BarMark(x: PlottableValue.value("Day", d.day), y: .value("Hours", d.hours))
+                BarMark(x: PlottableValue.value("Day", d.day), y: .value("Hours", d.hours)).annotation (position: .overlay){
+                    Text (String(d.hours))
+                        .foregroundColor(.white)
+                }
+                .foregroundStyle(by: .value("Type", d.type))
             }
         }
+        .chartYScale(range: .plotDimension(padding: 60))
+        .padding()
     }
 }
 

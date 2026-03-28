@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct SleepDataPoint: Identifiable {
+struct WorkDataPoint: Identifiable {
     
     var id = UUID().uuidString
     var day: String
     var hours: Int
+    var type: String = "Working Hours"
 }
