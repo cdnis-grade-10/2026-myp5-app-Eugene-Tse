@@ -5,9 +5,44 @@ import Charts
 
 class ViewControllerThree: UIViewController {
     
-
+    // 1. VARIABLES GO HERE (At the top)
+        let chartViewModel = ChartViewModel()
+        var incomingSleepHours: Int?
+        
+        // 2. ACTIONS GO HERE (Inside the function)
     override func viewDidLoad() {
         super.viewDidLoad()
+            // This 'if' statement MUST be inside viewDidLoad()
+            if let newHours = incomingSleepHours {
+                // Update Monday's data (index 0)
+                chartViewModel.data[0].hours = newHours
+            }
+            
+            // Initialize the SwiftUI chart and pass in the updated view model
+            let chartView = ContentView(viewModel: chartViewModel)
+            
+            // Wrap it in the UIHostingController
+            let hostingController = UIHostingController(rootView: chartView)
+            
+            // Add it to the screen
+            addChild(hostingController)
+            view.addSubview(hostingController.view)
+            
+            // Constrain it to fill the safe area
+            hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                hostingController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                hostingController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+            
+            hostingController.didMove(toParent: self)
+
+
+
+
+    
         // THIS IS WHERE THE HOSTING CODE GOES
                 
                 // Initialize your SwiftUI Chart View
@@ -37,9 +72,8 @@ class ViewControllerThree: UIViewController {
 }
         
 
-
-struct ContentView: View {
-    var data = [
+class ChartViewModel: ObservableObject {
+    @Published var data = [
         WorkDataPoint (
             day: "Mon", hours: 2),
         
@@ -60,6 +94,8 @@ struct ContentView: View {
         
         WorkDataPoint (
             day: "Sun", hours: 1, type: "Lowest")]
+    
+    
     
     var body: some View {
         

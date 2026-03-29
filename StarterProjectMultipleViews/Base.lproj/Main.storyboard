@@ -60,6 +60,10 @@
                                 <rect key="frame" x="-27" y="-64" width="447" height="980"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Frame" translatesAutoresizingMaskIntoConstraints="NO" id="k8E-7r-SAc">
+                                <rect key="frame" x="0.0" y="215" width="393" height="168"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5S-Rw-zz9">
                                 <rect key="frame" x="52" y="371" width="118" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -87,9 +91,15 @@
                                 <rect key="frame" x="24" y="239" width="353" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="100"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="af7-z8-qt4">
+                                <rect key="frame" x="63" y="481" width="262" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gA4-P0-ACM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -98,6 +108,7 @@
                     <connections>
                         <outlet property="StartStopButton" destination="g5S-Rw-zz9" id="OKQ-Iz-WkT"/>
                         <outlet property="resetButton" destination="KR0-hR-WuY" id="Mjy-GQ-Rea"/>
+                        <outlet property="sleepHoursTextField" destination="af7-z8-qt4" id="ARb-G5-upk"/>
                         <outlet property="timeLabel" destination="Jbj-lx-iCs" id="ULH-jw-pwI"/>
                     </connections>
                 </viewController>
@@ -201,6 +212,7 @@
     </scenes>
     <resources>
         <image name="Clock" width="964" height="960"/>
+        <image name="Frame" width="946" height="444"/>
         <image name="Screenshot 2026-03-24 at 1.05.21 PM" width="862" height="208"/>
         <image name="Screenshot 2026-03-24 at 12.53.28 PM" width="630" height="324"/>
         <image name="Untitled design" width="1179" height="2256"/>

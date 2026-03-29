@@ -71,7 +71,7 @@ class ViewControllerTwo: UIViewController {
             }
         }
     }
-
+    
     @IBAction func StartStopAction(_ sender: Any)
     {
         if timerCounting
@@ -182,12 +182,29 @@ class ViewControllerTwo: UIViewController {
         stopTime = date
         userDefaults.set(date, forKey: STOP_TIME_KEY)
     }
-
+    
     func setTimerCounting(_ val: Bool)
     {
         timerCounting = val
         userDefaults.set(timerCounting, forKey: COUNTING_KEY)
     }
-
+    
+    
+    
+    @IBOutlet weak var sleepHoursTextField: UITextField!
+    
+    
+    // This runs right before the transition to ViewControllerThree
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Check if we are heading to ViewControllerThree
+        if let destinationVC = segue.destination as? ViewControllerThree {
+            
+            // Grab the text, convert it to a number (Int), and send it over
+            if let text = sleepHoursTextField.text, let hoursTyped = Int(text) {
+                destinationVC.incomingSleepHours = hoursTyped
+            }
+        }
+    }
+    
 }
-
