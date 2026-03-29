@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="956.48854961832058" y="83.802816901408448"/>
         </scene>
-        <!--Timer-->
+        <!--ViewControllerTwo-->
         <scene sceneID="Hz9-CX-Mfh">
             <objects>
                 <viewController id="Dhs-9s-nZ9" customClass="ViewControllerTwo" customModule="StarterProjectMultipleViews" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,7 +71,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Play"/>
                                 <connections>
                                     <action selector="StartStopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L3c-xx-xcd"/>
-                                    <action selector="StartStopAction:" destination="Dhs-9s-nZ9" eventType="touchUpInside" id="jfA-t4-MTb"/>
+                                    <action selector="StartStopAction:" destination="Dhs-9s-nZ9" eventType="touchUpInside" id="ljE-ne-2cW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KR0-hR-WuY">
@@ -100,16 +100,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h4Q-Uz-FbR">
+                                <rect key="frame" x="63" y="539" width="262" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Mon"/>
+                                    <segment title="Tue"/>
+                                    <segment title="Wed"/>
+                                    <segment title="Thur"/>
+                                    <segment title="Fri"/>
+                                    <segment title="Sat"/>
+                                    <segment title="Sun"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gA4-P0-ACM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timer" image="clock.arrow.trianglehead.counterclockwise.rotate.90" catalog="system" id="h6u-SV-drx"/>
+                    <tabBarItem key="tabBarItem" title="ViewControllerTwo" image="clock.arrow.trianglehead.counterclockwise.rotate.90" catalog="system" id="h6u-SV-drx"/>
                     <connections>
                         <outlet property="StartStopButton" destination="g5S-Rw-zz9" id="OKQ-Iz-WkT"/>
+                        <outlet property="daySelector" destination="h4Q-Uz-FbR" id="Vtd-ow-Zwj"/>
                         <outlet property="resetButton" destination="KR0-hR-WuY" id="Mjy-GQ-Rea"/>
-                        <outlet property="sleepHoursTextField" destination="af7-z8-qt4" id="ARb-G5-upk"/>
+                        <outlet property="sleepHoursTextField" destination="af7-z8-qt4" id="GJD-CS-R6j"/>
                         <outlet property="timeLabel" destination="Jbj-lx-iCs" id="ULH-jw-pwI"/>
+                        <segue destination="Pf6-Zn-bo0" kind="show" identifier="showGraph" id="jAj-cA-QS1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ys9-cQ-av3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -121,7 +136,7 @@
             <objects>
                 <viewController id="Pf6-Zn-bo0" customClass="ViewControllerThree" customModule="StarterProjectMultipleViews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ONx-ah-1XV">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUc-NH-OdA">
@@ -136,11 +151,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Graph" image="chart.bar.xaxis" catalog="system" id="xT1-n7-0Po"/>
+                    <navigationItem key="navigationItem" id="Qht-v3-nOS"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3T-R8-pvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446.5648854961833" y="83.802816901408448"/>
+            <point key="canvasLocation" x="2735" y="602"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="akh-eD-pBR">
@@ -156,7 +172,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="lG4-DF-BLs"/>
                         <segue destination="8f5-fD-dJc" kind="relationship" relationship="viewControllers" id="Mjp-mL-XmY"/>
                         <segue destination="Dhs-9s-nZ9" kind="relationship" relationship="viewControllers" id="9Ul-5j-d3P"/>
-                        <segue destination="Pf6-Zn-bo0" kind="relationship" relationship="viewControllers" id="ns8-ze-YbO"/>
+                        <segue destination="Pf6-Zn-bo0" kind="relationship" relationship="viewControllers" id="dnD-BF-TCn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REI-YO-e0Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -210,6 +226,9 @@
             <point key="canvasLocation" x="29.770992366412212" y="757.74647887323943"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jAj-cA-QS1"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Clock" width="964" height="960"/>
         <image name="Frame" width="946" height="444"/>

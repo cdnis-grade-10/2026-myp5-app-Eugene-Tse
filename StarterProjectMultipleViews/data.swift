@@ -11,6 +11,6 @@ struct WorkDataPoint: Identifiable {
     
     var id = UUID().uuidString
     var day: String
-    var hours: Int
+    var hours: Double
     var type: String = "Working Hours"
 }
